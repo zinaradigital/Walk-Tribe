@@ -1,0 +1,2592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WALKINGTRIBE Digital Marketing Strategy - Spreadsheet View</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 100%);
+            padding: 20px;
+            font-size: 13px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2e7d32;
+        }
+        
+        .header h1 {
+            color: #1b5e20;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #555;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title .icon {
+            font-size: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        th {
+            background: #f5f5f5;
+            color: #333;
+            font-weight: 600;
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+        }
+        
+        td {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+        
+        tr:hover {
+            background: #f0f7f0;
+        }
+        
+        .total-row {
+            background: #e8f5e9 !important;
+            font-weight: bold;
+        }
+        
+        .highlight-green {
+            background: #c8e6c9 !important;
+            font-weight: 600;
+        }
+        
+        .highlight-blue {
+            background: #bbdefb !important;
+        }
+        
+        .highlight-amber {
+            background: #ffe0b2 !important;
+        }
+        
+        .highlight-red {
+            background: #ffcdd2 !important;
+        }
+        
+        .status-strong {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        
+        .status-dormant {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        
+        .priority-high {
+            background: #ff5722;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .priority-medium {
+            background: #ff9800;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .priority-low {
+            background: #9e9e9e;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        .notes {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .notes-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #e65100;
+        }
+        
+        .kpi-card {
+            display: inline-block;
+            background: white;
+            border: 2px solid #2e7d32;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 10px 10px 10px 0;
+            text-align: center;
+            min-width: 180px;
+        }
+        
+        .kpi-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1b5e20;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .kpi-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+        }
+        
+        .budget-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .budget-breakdown {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 11px;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+        
+        .print-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 20px 0;
+            display: block;
+            margin-left: auto;
+        }
+        
+        .print-btn:hover {
+            background: #1b5e20;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🥾 WALKINGTRIBE DIGITAL MARKETING STRATEGY</h1>
+            <p><strong>Campaign Duration:</strong> 12 Weeks | <strong>Budget:</strong> KES 50,000 | <strong>Target:</strong> 3,750 Total Followers</p>
+            <p style="margin-top: 10px; color: #666;">Digital Marketing Strategist (Intern) - Interview Assignment</p>
+        </div>
+
+        <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+        <!-- SECTION 1: BASELINE & TARGETS -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📊</span>
+                <span>1. BASELINE & 12-WEEK TARGETS</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Current Followers</th>
+                        <th>12-Week Target</th>
+                        <th>Net Growth</th>
+                        <th>% Growth</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Instagram</strong></td>
+                        <td>1,443</td>
+                        <td class="highlight-green">2,000</td>
+                        <td>+557</td>
+                        <td>+39%</td>
+                        <td class="status-strong">✅ Strong</td>
+                        <td><span class="priority-high">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TikTok</strong></td>
+                        <td>1</td>
+                        <td class="highlight-green">500</td>
+                        <td>+499</td>
+                        <td>+49,900%</td>
+                        <td class="status-dormant">🔴 Dormant</td>
+                        <td><span class="priority-high">HIGH</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>YouTube</strong></td>
+                        <td>2</td>
+                        <td class="highlight-green">300</td>
+                        <td>+298</td>
+                        <td>+14,900%</td>
+                        <td class="status-dormant">🔴 Dormant</td>
+                        <td><span class="priority-medium">MEDIUM</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>LinkedIn</strong></td>
+                        <td>14</td>
+                        <td class="highlight-green">300</td>
+                        <td>+286</td>
+                        <td>+2,043%</td>
+                        <td class="status-dormant">🔴 Dormant</td>
+                        <td><span class="priority-medium">MEDIUM</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facebook</strong></td>
+                        <td>3</td>
+                        <td class="highlight-green">300</td>
+                        <td>+297</td>
+                        <td>+9,900%</td>
+                        <td class="status-dormant">🔴 Dormant</td>
+                        <td><span class="priority-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>X (Twitter)</strong></td>
+                        <td>0</td>
+                        <td class="highlight-green">150</td>
+                        <td>+150</td>
+                        <td>NEW</td>
+                        <td class="status-dormant">🔴 Not Launched</td>
+                        <td><span class="priority-low">LOW</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email List</strong></td>
+                        <td>0</td>
+                        <td class="highlight-green">200</td>
+                        <td>+200</td>
+                        <td>NEW</td>
+                        <td class="status-dormant">🔴 Not Started</td>
+                        <td><span class="priority-medium">MEDIUM</span></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>1,463</strong></td>
+                        <td><strong>3,750</strong></td>
+                        <td><strong>+2,287</strong></td>
+                        <td><strong>+156%</strong></td>
+                        <td colspan="2"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">📌 KEY INSIGHT:</div>
+                Instagram is the ONLY performing channel. Strategy focuses on strengthening Instagram while rapidly launching TikTok as primary growth engine (lowest CAC, highest virality potential).
+            </div>
+        </div>
+
+        <!-- SECTION 2: BUDGET BREAKDOWN -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">💰</span>
+                <span>2. BUDGET BREAKDOWN - KES 50,000 (12 Weeks)</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount (KES)</th>
+                        <th>% of Budget</th>
+                        <th>Purpose / Breakdown</th>
+                        <th>Expected Outcome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Instagram Ads</strong></td>
+                        <td class="highlight-green">12,000</td>
+                        <td>24%</td>
+                        <td>
+                            • Campaign 1: Awareness (KES 5,000)<br>
+                            • Campaign 2: Event Conversion (KES 5,000)<br>
+                            • Campaign 3: Retargeting (KES 2,000)
+                        </td>
+                        <td>+550 followers, 150K impressions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TikTok Ads</strong></td>
+                        <td class="highlight-green">10,000</td>
+                        <td>20%</td>
+                        <td>
+                            • In-feed video ads<br>
+                            • KES 1,500/week x 7 weeks<br>
+                            • Discovery push campaign
+                        </td>
+                        <td>+400 followers, 300K+ views</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nano Influencers</strong></td>
+                        <td class="highlight-blue">9,000</td>
+                        <td>18%</td>
+                        <td>
+                            • 3 influencers x KES 3,000 each<br>
+                            • 2K-8K follower range<br>
+                            • Nairobi-based fitness/lifestyle
+                        </td>
+                        <td>+350 followers, authentic UGC</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Content Creation</strong></td>
+                        <td class="highlight-amber">8,000</td>
+                        <td>16%</td>
+                        <td>
+                            • Basic camera equipment/props<br>
+                            • Editing software subscriptions<br>
+                            • Stock footage/music licenses
+                        </td>
+                        <td>Professional quality content</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tools & Software</strong></td>
+                        <td class="highlight-amber">6,000</td>
+                        <td>12%</td>
+                        <td>
+                            • Canva Pro: KES 3,000<br>
+                            • Google Workspace: KES 1,200<br>
+                            • Miscellaneous tools: KES 1,800
+                        </td>
+                        <td>Streamlined workflow</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Marketing</strong></td>
+                        <td class="highlight-amber">2,000</td>
+                        <td>4%</td>
+                        <td>
+                            • Mailchimp Essentials (3 months)<br>
+                            • Lead magnet creation<br>
+                            • Email templates
+                        </td>
+                        <td>200 email subscribers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contingency Buffer</strong></td>
+                        <td class="highlight-red">3,000</td>
+                        <td>6%</td>
+                        <td>
+                            • Emergency opportunities<br>
+                            • Underperforming campaign reallocation<br>
+                            • Unexpected tool needs
+                        </td>
+                        <td>Risk mitigation</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>50,000</strong></td>
+                        <td><strong>100%</strong></td>
+                        <td colspan="2"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 20px;">
+                <div class="kpi-card">
+                    <span class="kpi-value">KES 21.85</span>
+                    <span class="kpi-label">Cost Per Follower</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-value">2,287</span>
+                    <span class="kpi-label">Expected New Followers</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-value">450K+</span>
+                    <span class="kpi-label">Total Impressions</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-value">5.2%</span>
+                    <span class="kpi-label">Projected Avg Engagement</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: POSTING CADENCE -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📅</span>
+                <span>3. CONTENT POSTING CADENCE & TIME INVESTMENT</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Frequency</th>
+                        <th>Monthly Posts</th>
+                        <th>Content Type</th>
+                        <th>Time/Post</th>
+                        <th>Weekly Hours</th>
+                        <th>Rationale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-green">
+                        <td><strong>Instagram</strong></td>
+                        <td>4x/week + daily stories</td>
+                        <td>16 posts + 30 stories</td>
+                        <td>Reels, Carousels, Stories</td>
+                        <td>30-45 min</td>
+                        <td>3.5 hrs</td>
+                        <td>Maintain engagement with existing base, steady growth</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td><strong>TikTok</strong></td>
+                        <td>5x/week</td>
+                        <td>20 videos</td>
+                        <td>15-60 sec videos, trends</td>
+                        <td>25-40 min</td>
+                        <td>3 hrs</td>
+                        <td>Algorithm rewards consistency, virality potential</td>
+                    </tr>
+                    <tr>
+                        <td><strong>YouTube Shorts</strong></td>
+                        <td>2x/week</td>
+                        <td>8 shorts</td>
+                        <td>Repurposed TikTok content</td>
+                        <td>15 min</td>
+                        <td>0.5 hrs</td>
+                        <td>Easy repurposing, minimal extra effort</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LinkedIn</strong></td>
+                        <td>1x/week</td>
+                        <td>4 posts</td>
+                        <td>Articles, carousels, success stories</td>
+                        <td>45 min</td>
+                        <td>0.75 hrs</td>
+                        <td>B2B wellness angle, quality over quantity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facebook</strong></td>
+                        <td>2x/week</td>
+                        <td>8 posts</td>
+                        <td>Events, cross-posts, photo albums</td>
+                        <td>20 min</td>
+                        <td>0.7 hrs</td>
+                        <td>Event-focused, community building</td>
+                    </tr>
+                    <tr>
+                        <td><strong>X (Twitter)</strong></td>
+                        <td>3x/week</td>
+                        <td>12 tweets</td>
+                        <td>Quick updates, threads, quotes</td>
+                        <td>10 min</td>
+                        <td>0.5 hrs</td>
+                        <td>Real-time engagement, minimal effort</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email</strong></td>
+                        <td>2x/month</td>
+                        <td>2 newsletters</td>
+                        <td>Digest, trail guides, events</td>
+                        <td>60 min</td>
+                        <td>0.5 hrs</td>
+                        <td>Retention focus, not overwhelming</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="5"><strong>TOTAL WEEKLY TIME INVESTMENT</strong></td>
+                        <td><strong>12-15 hrs</strong></td>
+                        <td><strong>Manageable for 1 person + tools</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">⚡ EFFICIENCY TIP:</div>
+                Film 1 Saturday walk = 20+ pieces of content across all platforms. Create once, distribute everywhere strategy maximizes ROI on time investment.
+            </div>
+        </div>
+
+        <!-- SECTION 4: WEEK-BY-WEEK MILESTONES -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📈</span>
+                <span>4. WEEK-BY-WEEK GROWTH MILESTONES</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Instagram</th>
+                        <th>TikTok</th>
+                        <th>YouTube</th>
+                        <th>LinkedIn</th>
+                        <th>Facebook</th>
+                        <th>X</th>
+                        <th>Email</th>
+                        <th>Total</th>
+                        <th>Key Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-blue">
+                        <td><strong>Week 0</strong><br>(Baseline)</td>
+                        <td>1,443</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>14</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td><strong>1,463</strong></td>
+                        <td>Strategy approval, tool setup</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Week 2</strong></td>
+                        <td>1,500</td>
+                        <td>50</td>
+                        <td>10</td>
+                        <td>25</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td><strong>1,610</strong></td>
+                        <td>Content bank ready, daily posting begins</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Week 4</strong></td>
+                        <td>1,600</td>
+                        <td>150</td>
+                        <td>50</td>
+                        <td>75</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>40</td>
+                        <td><strong>1,985</strong></td>
+                        <td>First nano influencer posts go live</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Week 6</strong></td>
+                        <td>1,700</td>
+                        <td>250</td>
+                        <td>100</td>
+                        <td>130</td>
+                        <td>100</td>
+                        <td>50</td>
+                        <td>80</td>
+                        <td><strong>2,410</strong></td>
+                        <td>Paid ads optimized, viral TikTok attempt</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Week 8</strong></td>
+                        <td>1,800</td>
+                        <td>350</td>
+                        <td>180</td>
+                        <td>200</td>
+                        <td>180</td>
+                        <td>80</td>
+                        <td>120</td>
+                        <td><strong>2,910</strong></td>
+                        <td>Second influencer wave launched</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Week 10</strong></td>
+                        <td>1,900</td>
+                        <td>425</td>
+                        <td>240</td>
+                        <td>250</td>
+                        <td>240</td>
+                        <td>115</td>
+                        <td>160</td>
+                        <td><strong>3,330</strong></td>
+                        <td>Scale what's working, pause underperformers</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td><strong>Week 12</strong><br>(Target)</td>
+                        <td><strong>2,000</strong></td>
+                        <td><strong>500</strong></td>
+                        <td><strong>300</strong></td>
+                        <td><strong>300</strong></td>
+                        <td><strong>300</strong></td>
+                        <td><strong>150</strong></td>
+                        <td><strong>200</strong></td>
+                        <td><strong>3,750</strong></td>
+                        <td><strong>TARGET HIT ✅ Final optimization</strong></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>NET GROWTH</strong></td>
+                        <td><strong>+557</strong></td>
+                        <td><strong>+499</strong></td>
+                        <td><strong>+298</strong></td>
+                        <td><strong>+286</strong></td>
+                        <td><strong>+297</strong></td>
+                        <td><strong>+150</strong></td>
+                        <td><strong>+200</strong></td>
+                        <td><strong>+2,287</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 5: CONTENT REPURPOSING STRATEGY -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🎬</span>
+                <span>5. CONTENT REPURPOSING MATRIX (Create Once, Distribute Everywhere)</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source Content</th>
+                        <th>Filming Time</th>
+                        <th>TikTok Output</th>
+                        <th>Instagram Output</th>
+                        <th>YouTube Output</th>
+                        <th>LinkedIn Output</th>
+                        <th>Facebook Output</th>
+                        <th>Email Output</th>
+                        <th>Total Pieces</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1 Saturday Walk</strong><br>(Main Event)</td>
+                        <td>60 minutes filming</td>
+                        <td>
+                            • 1 main video (60s)<br>
+                            • 2 trend videos (30s)<br>
+                            • 1 behind-scenes (45s)
+                        </td>
+                        <td>
+                            • 3 Reels (30s each)<br>
+                            • 1 Carousel (8 slides)<br>
+                            • 5 Stories (15s each)
+                        </td>
+                        <td>
+                            • 2 YouTube Shorts<br>
+                            • 1 Community post
+                        </td>
+                        <td>
+                            • 1 Trail guide carousel<br>
+                            • 1 Wellness article
+                        </td>
+                        <td>
+                            • 1 Event recap album<br>
+                            • 1 Next event post
+                        </td>
+                        <td>
+                            • 1 Newsletter feature<br>
+                            • Event highlights
+                        </td>
+                        <td><strong>22+ pieces</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trail Tips Filming</strong><br>(Educational)</td>
+                        <td>30 minutes</td>
+                        <td>
+                            • 2 tip videos (30s)
+                        </td>
+                        <td>
+                            • 2 Reels<br>
+                            • 1 Carousel (tips)
+                        </td>
+                        <td>
+                            • 1 Short
+                        </td>
+                        <td>
+                            • 1 Professional tip post
+                        </td>
+                        <td>
+                            • 1 Shared post
+                        </td>
+                        <td>
+                            • Tip section in newsletter
+                        </td>
+                        <td><strong>9 pieces</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Member Testimonial</strong><br>(UGC)</td>
+                        <td>15 minutes interview</td>
+                        <td>
+                            • 1 story video (45s)
+                        </td>
+                        <td>
+                            • 1 Reel<br>
+                            • 3 Stories
+                        </td>
+                        <td>
+                            • 1 Short
+                        </td>
+                        <td>
+                            • 1 Success story
+                        </td>
+                        <td>
+                            • 1 Member spotlight
+                        </td>
+                        <td>
+                            • Featured member section
+                        </td>
+                        <td><strong>10 pieces</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trail Showcase</strong><br>(Location Focus)</td>
+                        <td>45 minutes</td>
+                        <td>
+                            • 1 cinematic video (60s)<br>
+                            • 1 quick tour (30s)
+                        </td>
+                        <td>
+                            • 2 Reels<br>
+                            • 1 Photo carousel<br>
+                            • 4 Stories
+                        </td>
+                        <td>
+                            • 1 Trail guide Short
+                        </td>
+                        <td>
+                            • 1 Destination article
+                        </td>
+                        <td>
+                            • 1 Photo album<br>
+                            • 1 Event suggestion
+                        </td>
+                        <td>
+                            • Trail of the week feature
+                        </td>
+                        <td><strong>14 pieces</strong></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="8"><strong>WEEKLY CONTENT EFFICIENCY</strong></td>
+                        <td><strong>55+ pieces from 2.5 hrs filming</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">🎯 EFFICIENCY MULTIPLIER:</div>
+                By filming strategically on Saturday walks, you create 2-3 weeks worth of content in one morning. Each piece of raw footage gets repurposed 7+ times across platforms with minimal additional editing.
+            </div>
+        </div>
+
+        <!-- SECTION 6: PAID ADVERTISING BREAKDOWN -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">💳</span>
+                <span>6. PAID ADVERTISING CAMPAIGN BREAKDOWN (KES 22,000)</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Campaign Name</th>
+                        <th>Week Range</th>
+                        <th>Budget (KES)</th>
+                        <th>Objective</th>
+                        <th>Target Audience</th>
+                        <th>Ad Format</th>
+                        <th>Expected Results</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-blue">
+                        <td rowspan="3"><strong>Instagram</strong><br>(Total: 12,000)</td>
+                        <td><strong>Campaign 1: Awareness</strong></td>
+                        <td>Weeks 3-6</td>
+                        <td>5,000</td>
+                        <td>Reach & Brand Awareness</td>
+                        <td>25-45, Nairobi Metro, Interests: Hiking, Fitness, Outdoor</td>
+                        <td>Reel Ads (15-30s trail highlights)</td>
+                        <td>150K impressions, +250 followers, 3.5% CTR</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td><strong>Campaign 2: Conversion</strong></td>
+                        <td>Weeks 7-10</td>
+                        <td>5,000</td>
+                        <td>Event Registration</td>
+                        <td>Lookalike audience (existing followers), 28-42, Nairobi</td>
+                        <td>Carousel Ads (trail previews + event CTA)</td>
+                        <td>+200 followers, 80 event sign-ups, 4.2% CVR</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td><strong>Campaign 3: Retargeting</strong></td>
+                        <td>Weeks 11-12</td>
+                        <td>2,000</td>
+                        <td>Conversion</td>
+                        <td>Engaged users who didn't follow (profile visitors, story viewers)</td>
+                        <td>Story Ads + Feed Posts</td>
+                        <td>+100 followers, 30 email sign-ups</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td><strong>TikTok</strong><br>(Total: 10,000)</td>
+                        <td><strong>Discovery Push</strong></td>
+                        <td>Weeks 4-10</td>
+                        <td>10,000<br>(KES 1,500/week)</td>
+                        <td>Video Views → Followers</td>
+                        <td>Kenya, 18-40, Interests: Travel, Fitness, Nature, Adventure</td>
+                        <td>In-Feed Video Ads (15-30s vertical)</td>
+                        <td>300K+ views, +400 followers, 6% engagement</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="3"><strong>TOTAL PAID ADVERTISING</strong></td>
+                        <td><strong>22,000</strong></td>
+                        <td colspan="3"></td>
+                        <td><strong>+950 followers, 450K+ impressions</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">📊 CPM & CPC ESTIMATES:</div>
+                Instagram CPM: KES 300-600 | TikTok CPM: KES 200-400 | Expected CPC: KES 8-15 | Follower CAC: KES 20-25
+            </div>
+        </div>
+
+        <!-- SECTION 7: INFLUENCER STRATEGY -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🤝</span>
+                <span>7. NANO INFLUENCER PARTNERSHIP STRATEGY (KES 9,000)</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Influencer #</th>
+                        <th>Tier</th>
+                        <th>Follower Range</th>
+                        <th>Week Deployed</th>
+                        <th>Cost (KES)</th>
+                        <th>Deliverables</th>
+                        <th>Expected Reach</th>
+                        <th>Expected Followers</th>
+                        <th>Selection Criteria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Influencer 1</strong></td>
+                        <td>Nano</td>
+                        <td>2,000-5,000</td>
+                        <td>Week 4</td>
+                        <td>3,000</td>
+                        <td>3 IG Stories, 1 Reel, 1 TikTok, Walk attendance</td>
+                        <td>8,000-12,000</td>
+                        <td>+80-120</td>
+                        <td>Nairobi fitness influencer, 6%+ ER, authentic audience</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Influencer 2</strong></td>
+                        <td>Nano</td>
+                        <td>3,000-8,000</td>
+                        <td>Week 6</td>
+                        <td>3,000</td>
+                        <td>3 IG Stories, 1 Reel, 1 TikTok, Walk attendance</td>
+                        <td>12,000-20,000</td>
+                        <td>+100-150</td>
+                        <td>Lifestyle/wellness creator, female 25-35, engaged community</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Influencer 3</strong></td>
+                        <td>Nano</td>
+                        <td>4,000-8,000</td>
+                        <td>Week 8</td>
+                        <td>3,000</td>
+                        <td>3 IG Stories, 1 Reel, 1 TikTok, Walk attendance</td>
+                        <td>15,000-25,000</td>
+                        <td>+120-180</td>
+                        <td>Outdoor/adventure content, previous brand collabs, Nairobi-based</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="4"><strong>TOTAL INFLUENCER BUDGET</strong></td>
+                        <td><strong>9,000</strong></td>
+                        <td><strong>9 Stories, 3 Reels, 3 TikToks</strong></td>
+                        <td><strong>35K-57K reach</strong></td>
+                        <td><strong>+300-450 followers</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">💡 INFLUENCER OUTREACH SCRIPT:</div>
+                <em>"Hi [Name]! We're WALKINGTRIBE, bringing Nairobians together for free Saturday morning walks exploring hidden trails around the city. We love how you inspire your community to live actively and would love to partner with you for our upcoming growth campaign. Would you be interested in joining us for a walk and sharing the experience with your audience? We'd provide compensation + a fun morning outdoors. Let's chat!"</em>
+            </div>
+
+            <table style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th>Vetting Criteria</th>
+                        <th>Must Have</th>
+                        <th>Nice to Have</th>
+                        <th>Red Flags (Reject)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Engagement Rate</strong></td>
+                        <td>5%+ minimum</td>
+                        <td>8%+ exceptional</td>
+                        <td>&lt;3% (likely fake followers)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Location</strong></td>
+                        <td>Nairobi-based or Kenya-focused</td>
+                        <td>Lives near trail locations</td>
+                        <td>International with no Kenya relevance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Niche</strong></td>
+                        <td>Fitness, wellness, lifestyle, outdoor</td>
+                        <td>Previous hiking/walking content</td>
+                        <td>Completely unrelated niche</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Audience Quality</strong></td>
+                        <td>Real comments, genuine engagement</td>
+                        <td>Kenyan audience majority</td>
+                        <td>Bot comments, purchased followers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brand Alignment</strong></td>
+                        <td>Positive, community-focused values</td>
+                        <td>Previous successful brand partnerships</td>
+                        <td>Controversial content, misaligned values</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 8: TOOLS & SOFTWARE -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🛠️</span>
+                <span>8. TOOLS & SOFTWARE STACK (KES 6,000 for 12 weeks)</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Tool Name</th>
+                        <th>Purpose</th>
+                        <th>Features Used</th>
+                        <th>Cost (3 months)</th>
+                        <th>Alternative (Free)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-blue">
+                        <td rowspan="2"><strong>Content Creation</strong></td>
+                        <td><strong>Canva Pro</strong></td>
+                        <td>Graphics, thumbnails, carousels, templates</td>
+                        <td>Brand kit, templates, background remover, video editor</td>
+                        <td>KES 3,000</td>
+                        <td>Canva Free (limited)</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td><strong>CapCut</strong></td>
+                        <td>Video editing for Reels/TikToks</td>
+                        <td>Transitions, text overlays, trending effects, exports</td>
+                        <td>FREE</td>
+                        <td>InShot, VN Editor</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td rowspan="3"><strong>Scheduling & Publishing</strong></td>
+                        <td><strong>Meta Business Suite</strong></td>
+                        <td>Instagram + Facebook scheduling</td>
+                        <td>Post scheduling, inbox management, insights</td>
+                        <td>FREE</td>
+                        <td>Later Free</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td><strong>TikTok Creator Tools</strong></td>
+                        <td>TikTok scheduling & analytics</td>
+                        <td>Desktop upload, analytics, comment management</td>
+                        <td>FREE</td>
+                        <td>Mobile app only</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td><strong>Buffer/Later Free</strong></td>
+                        <td>Backup multi-platform scheduler</td>
+                        <td>Calendar view, draft storage, queue management</td>
+                        <td>FREE</td>
+                        <td>Hootsuite Free</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td><strong>Analytics</strong></td>
+                        <td><strong>Native Platform Insights</strong></td>
+                        <td>Track performance across all platforms</td>
+                        <td>Follower growth, engagement, reach, demographics</td>
+                        <td>FREE</td>
+                        <td>Metricool (paid)</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td><strong>Email Marketing</strong></td>
+                        <td><strong>Mailchimp Free/Essentials</strong></td>
+                        <td>Newsletter, automations, list management</td>
+                        <td>Up to 500 contacts (Free), unlimited (Essentials)</td>
+                        <td>KES 0-2,000</td>
+                        <td>MailerLite Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Collaboration</strong></td>
+                        <td><strong>Google Workspace</strong></td>
+                        <td>Content calendar, asset storage, team collaboration</td>
+                        <td>Sheets, Docs, Drive (15GB), Calendar</td>
+                        <td>KES 1,200</td>
+                        <td>Google Free (limited)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stock Assets</strong></td>
+                        <td><strong>Pexels/Unsplash</strong></td>
+                        <td>Backup images/videos when needed</td>
+                        <td>Free stock footage, no attribution required</td>
+                        <td>FREE</td>
+                        <td>Pixabay</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Community</strong></td>
+                        <td><strong>WhatsApp Business</strong></td>
+                        <td>Group management, event coordination, quick updates</td>
+                        <td>Broadcast lists, labels, auto-replies, catalog</td>
+                        <td>FREE</td>
+                        <td>Telegram</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="4"><strong>TOTAL MONTHLY COST</strong></td>
+                        <td><strong>~KES 2,000/month</strong></td>
+                        <td><strong>KES 6,000 for 12 weeks</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">⚡ WORKFLOW OPTIMIZATION:</div>
+                Use Canva for initial design → Export to CapCut for video editing → Schedule via Meta Business Suite → Track with native insights. Keep tools minimal to avoid complexity and subscription fatigue.
+            </div>
+        </div>
+
+        <!-- SECTION 9: CONTENT PILLARS & THEMES -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🎨</span>
+                <span>9. CONTENT PILLARS & THEMATIC BREAKDOWN</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Content Pillar</th>
+                        <th>% of Content</th>
+                        <th>Post Examples</th>
+                        <th>Platforms</th>
+                        <th>Goal</th>
+                        <th>Hashtag Examples</th>
+                        <th>CTA Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-green">
+                        <td><strong>🥾 Trail Spotlights</strong></td>
+                        <td>30%</td>
+                        <td>
+                            • Karura Forest hidden paths<br>
+                            • Ngong Hills sunrise walk<br>
+                            • Paradise Lost gardens<br>
+                            • City park morning loops
+                        </td>
+                        <td>All platforms (primary content)</td>
+                        <td>Showcase locations, inspire participation</td>
+                        <td>#NairobiTrails #KarukaForest #HiddenKenya #NairobiWalks</td>
+                        <td>"Join us Saturday!", "Save this trail", "Tag a walk buddy"</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td><strong>💡 Walking Tips</strong></td>
+                        <td>25%</td>
+                        <td>
+                            • Proper walking form<br>
+                            • Best shoes for trails<br>
+                            • Hydration tips<br>
+                            • Safety in groups<br>
+                            • Stretching routines
+                        </td>
+                        <td>Instagram, TikTok, LinkedIn, YouTube</td>
+                        <td>Educate, establish authority, provide value</td>
+                        <td>#WalkingTips #FitnessKenya #HealthyLiving #WellnessTips</td>
+                        <td>"Save for later", "Try this today", "Share with friends"</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td><strong>👥 Community Stories</strong></td>
+                        <td>25%</td>
+                        <td>
+                            • Member transformations<br>
+                            • "Why I walk" features<br>
+                            • Group photos & highlights<br>
+                            • Testimonials<br>
+                            • Behind-the-scenes
+                        </td>
+                        <td>Instagram, Facebook, LinkedIn, Email</td>
+                        <td>Build community, social proof, engagement</td>
+                        <td>#WalkingTribeCommunity #NairobiWalkers #FitFam #CommunityFirst</td>
+                        <td>"Share your story", "Tag yourself", "Join the tribe"</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td><strong>🎯 Challenges</strong></td>
+                        <td>15%</td>
+                        <td>
+                            • 30-day step challenge<br>
+                            • Weekend warrior series<br>
+                            • Trail bingo card<br>
+                            • Photo contests<br>
+                            • Referral challenges
+                        </td>
+                        <td>Instagram, TikTok, Email, WhatsApp</td>
+                        <td>Drive engagement, create urgency, virality</td>
+                        <td>#WalkingChallenge #30DayWalk #StepChallenge #FitnessGoals</td>
+                        <td>"Join the challenge", "DM for details", "Tag 3 friends"</td>
+                    </tr>
+                    <tr class="highlight-red">
+                        <td><strong>📅 Events</strong></td>
+                        <td>5%</td>
+                        <td>
+                            • Saturday walk announcements<br>
+                            • Event recaps<br>
+                            • Special themed walks<br>
+                            • Partnership events<br>
+                            • Registration reminders
+                        </td>
+                        <td>Facebook (events), Instagram, Email, X</td>
+                        <td>Drive registrations, attendance, conversions</td>
+                        <td>#SaturdayWalks #WalkWithUs #NairobiEvents #OutdoorKenya</td>
+                        <td>"RSVP now", "Register free", "Limited spots", "See you Saturday"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">🎯 CONTENT BALANCE RATIONALE:</div>
+                Trail Spotlights (30%) drives discovery. Tips (25%) establishes expertise. Community (25%) builds loyalty. Challenges (15%) creates urgency. Events (5%) converts to action. This mix ensures consistent value while driving conversions.
+            </div>
+
+            <table style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th colspan="7" style="background: #2e7d32; color: white; text-align: center;">TONE OF VOICE & VISUAL GUIDELINES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tone Attribute</strong></td>
+                        <td><strong>Description</strong></td>
+                        <td><strong>Do This</strong></td>
+                        <td><strong>Not This</strong></td>
+                        <td><strong>Visual Style</strong></td>
+                        <td><strong>Colors</strong></td>
+                        <td><strong>Typography</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inspiring</strong></td>
+                        <td>Motivate daily movement</td>
+                        <td>"Every step counts", "You've got this"</td>
+                        <td>"No pain no gain", aggressive pushing</td>
+                        <td>Golden hour, sunrise/sunset shots</td>
+                        <td>Forest green, sky blue, warm orange</td>
+                        <td>Bold, clean sans-serif headers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inclusive</strong></td>
+                        <td>All fitness levels welcome</td>
+                        <td>"Beginners welcome", "Your pace, your journey"</td>
+                        <td>"For serious athletes only"</td>
+                        <td>Diverse people, all ages, body types</td>
+                        <td>Earth tones, natural palette</td>
+                        <td>Friendly, accessible fonts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Authentic</strong></td>
+                        <td>Real stories, real people</td>
+                        <td>Candid photos, real testimonials</td>
+                        <td>Stock photos, staged perfection</td>
+                        <td>Natural lighting, unposed moments</td>
+                        <td>True-to-life, no heavy filters</td>
+                        <td>Handwritten accents for authenticity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Educational</strong></td>
+                        <td>Share walking benefits</td>
+                        <td>"Did you know?", "Here's why"</td>
+                        <td>Preachy, condescending tone</td>
+                        <td>Infographic-style, clear data viz</td>
+                        <td>High contrast for readability</td>
+                        <td>Clear hierarchy, easy to scan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Community-First</strong></td>
+                        <td>Celebrate members</td>
+                        <td>"Meet our tribe", "Community spotlight"</td>
+                        <td>Brand-centric, sales-y</td>
+                        <td>Group shots, people-focused</td>
+                        <td>Vibrant, energetic</td>
+                        <td>Warm, welcoming</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 10: SAMPLE 7-DAY CONTENT CALENDAR -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📆</span>
+                <span>10. SAMPLE 7-DAY CONTENT CALENDAR (Week 5 Example)</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Platform</th>
+                        <th>Post Type</th>
+                        <th>Content Pillar</th>
+                        <th>Caption/Headline (Full Sample)</th>
+                        <th>Hashtags</th>
+                        <th>CTA</th>
+                        <th>Creative Brief</th>
+                        <th>Est. Reach</th>
+                        <th>Est. Engagement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-blue">
+                        <td><strong>MON</strong></td>
+                        <td>Instagram</td>
+                        <td>Reel (30s)</td>
+                        <td>Walking Tips</td>
+                        <td><strong>5 Common Walking Mistakes and How to Fix Them</strong><br><br>Starting your walking journey? Avoid these beginner mistakes:<br>• Wrong shoes cause blisters - invest in proper walking shoes<br>• Too fast too soon leads to burnout - start with 20-minute walks<br>• Poor posture creates back pain - keep shoulders back, core engaged<br>• Skipping warm-up increases injury risk - always stretch first<br>• No water leads to dehydration - bring a bottle<br><br>Which mistake have you made? Comment below. Join us Saturday for a proper guided walk. #WalkingTribe #NairobiWalks #FitnessTips #HealthyLiving</td>
+                        <td>#WalkingTribe #NairobiWalks #FitnessTips #HealthyLiving #KenyaFitness #WalkingTips #BeginnerFitness #WellnessKenya</td>
+                        <td>"Save this!", "Join Saturday walk"</td>
+                        <td>Fast-cut video showing each mistake + correction. Text overlays for each point. Upbeat music. End with WALKINGTRIBE logo.</td>
+                        <td>2,500</td>
+                        <td>180 (7.2%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TUE</strong></td>
+                        <td>TikTok</td>
+                        <td>Video (45s)</td>
+                        <td>Trail Spotlight</td>
+                        <td><strong>POV: You discover Nairobi's BEST hidden trail</strong><br><br>Location: Karura Forest Waterfall Trail<br>• 45-minute loop<br>• FREE entry<br>• Best time: Early morning before 9am<br>• What you'll see: Waterfall, monkeys, cycling paths, picnic spots<br><br>Who's joining us Saturday? #NairobiHiddenGems</td>
+                        <td>#KenyaTikTok #NairobiLife #HiddenGems #KaruralForest #NairobiTrails #ExploreKenya #OutdoorKenya</td>
+                        <td>"Follow for more trails"</td>
+                        <td>POV walking footage through Karura, transitions to waterfall reveal. Trending TikTok audio. Vertical 9:16.</td>
+                        <td>15,000</td>
+                        <td>950 (6.3%)</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td><strong>WED</strong></td>
+                        <td>Facebook</td>
+                        <td>Event Post</td>
+                        <td>Events</td>
+                        <td><strong>THIS SATURDAY: Karura Forest Morning Walk</strong><br><br>Join 50+ walkers for our weekly Saturday adventure<br><br>DETAILS:<br>• Meeting Point: Karura Main Gate<br>• Time: 7:00 AM - 9:00 AM<br>• Cost: FREE (Forest entry: KES 100)<br>• Difficulty: Easy (all levels welcome)<br>• Bring: Water, hat, sunscreen<br><br>What to expect:<br>• Guided 5km walk<br>• Nature photography stops<br>• Post-walk coffee meetup<br>• New friends<br><br>Click "Going" to RSVP and get event updates. Limited to 60 people - secure your spot now. #WalkingTribe #NairobiEvents</td>
+                        <td>N/A (Facebook Event)</td>
+                        <td>"Click Going", "Invite friends"</td>
+                        <td>Event cover photo: Previous walk group shot at Karura. Warm, inviting colors. Clear text overlay with date/time.</td>
+                        <td>800</td>
+                        <td>45 RSVPs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>THU</strong></td>
+                        <td>Instagram</td>
+                        <td>Carousel (8 slides)</td>
+                        <td>Walking Tips</td>
+                        <td><strong>The Ultimate Walking Gear Guide for Nairobi Trails</strong><br><br>Swipe for everything you need (and don't need)<br><br>Slide 1: Cover "Essential Gear Guide"<br>Slide 2: Shoes - Walking shoes vs hiking boots<br>Slide 3: Clothing - Breathable fabrics for Nairobi heat<br>Slide 4: Hydration - Water bottles and backpacks<br>Slide 5: Sun protection - Hats, sunscreen, sunglasses<br>Slide 6: Safety - First aid basics<br>Slide 7: What NOT to bring<br>Slide 8: CTA - Join us Saturday<br><br>Save this for your next walk. What's your must-have walking item? #WalkingTribe #GearGuide</td>
+                        <td>#WalkingTribe #GearGuide #HikingKenya #OutdoorGear #NairobiWalks #WalkingEssentials #FitnessKenya</td>
+                        <td>"Save this post", "Shop link in bio"</td>
+                        <td>Clean carousel design. Each slide with product image, description, price range. Consistent Canva template. Brand colors throughout.</td>
+                        <td>3,200</td>
+                        <td>240 (7.5%)</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td><strong>FRI</strong></td>
+                        <td>Email</td>
+                        <td>Newsletter</td>
+                        <td>Multiple</td>
+                        <td><strong>Subject: This Weekend's Trail Pick + Walking Challenge Starts Monday</strong><br><br>Hi [Name],<br><br>Your weekly trail update is here:<br><br>• SATURDAY'S WALK: Karura Forest (7 AM) - RSVP link<br>• TRAIL OF THE WEEK: Paradise Lost Gardens guide<br>• NEW: 30-Day Step Challenge launches Monday<br>• MEMBER SPOTLIGHT: Meet Sarah's transformation story<br>• TIP: How to prevent blisters on long walks<br><br>See you Saturday<br>The WALKINGTRIBE Team</td>
+                        <td>N/A</td>
+                        <td>"RSVP for Saturday", "Join Challenge"</td>
+                        <td>Clean email template. Hero image (Karura). Clear sections. Mobile-responsive. 2-3 min read time.</td>
+                        <td>120 opens</td>
+                        <td>35 clicks (29% CTR)</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td><strong>SAT</strong></td>
+                        <td>Instagram</td>
+                        <td>Story Series (8 stories)</td>
+                        <td>Events</td>
+                        <td><strong>LIVE from today's Karura walk</strong><br><br>Story sequence:<br>• Story 1: Group arrival (7 AM)<br>• Story 2: Warm-up stretches<br>• Story 3: Trail entrance<br>• Story 4: Waterfall stop<br>• Story 5: Action shot (walking)<br>• Story 6: Coffee break<br>• Story 7: Group photo finale<br>• Story 8: Next week teaser + poll "Where next?"</td>
+                        <td>Hashtag stickers: #WalkingTribe #KaruraForest</td>
+                        <td>Poll, Q&A stickers, "Swipe up" for next event</td>
+                        <td>Real-time vertical video/photos. Behind-the-scenes vibe. Use Instagram story features (polls, questions, countdowns).</td>
+                        <td>1,800</td>
+                        <td>320 interactions (17.8%)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SUN</strong></td>
+                        <td>LinkedIn</td>
+                        <td>Article</td>
+                        <td>Community Stories</td>
+                        <td><strong>How Walking Meetings Boosted Our Team's Productivity by 40%</strong><br><br>Traditional boardroom meetings create stale air and drowsy teams. Solution? Walking meetings.<br><br>Last month, we piloted "Walk and Talk Wednesdays" with 15 Nairobi companies. Results:<br>• 40% increase in creative solutions<br>• 28% improvement in team morale<br>• 100% would recommend<br><br>The science: Movement increases blood flow to brain, outdoor settings reduce stress, informal setting encourages honest dialogue.<br><br>3 tips for implementing walking meetings in your organization:<br>• Start with 1-on-1s<br>• Choose flat, quiet routes<br>• Keep meetings under 45 minutes<br><br>Interested in corporate wellness programs? DM us. #CorporateWellness #NairobiBusinesses #WalkingMeetings</td>
+                        <td>#CorporateWellness #NairobiBusinesses #WalkingMeetings #EmployeeWellbeing #ProductivityHacks #WellnessPrograms</td>
+                        <td>"DM for corporate packages", "Share with HR team"</td>
+                        <td>Professional article format. Include infographic with stats. Professional headshot. B2B focused.</td>
+                        <td>450</td>
+                        <td>35 engagements (7.8%)</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="8"><strong>WEEKLY TOTALS</strong></td>
+                        <td><strong>24,870 reach</strong></td>
+                        <td><strong>1,805 engagements (7.3% avg)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">📝 CONTENT CREATION NOTES:</div>
+                All content for this week created from: 1) Previous Saturday walk footage (60 min filming), 2) One tip video shoot (20 min), 3) Stock assets from Canva. Total creation time: ~8 hours for entire week.
+            </div>
+        </div>
+
+        <!-- SECTION 11: MEASUREMENT & KPIs -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📊</span>
+                <span>11. MEASUREMENT FRAMEWORK & REPORTING CADENCE</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Frequency</th>
+                        <th>Metrics Tracked</th>
+                        <th>Tools Used</th>
+                        <th>Action Threshold</th>
+                        <th>Time Investment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-blue">
+                        <td><strong>DAILY</strong><br>(Quick Check)</td>
+                        <td>
+                            • Story views & engagement<br>
+                            • New follower count<br>
+                            • Comment sentiment<br>
+                            • DM response time<br>
+                            • Real-time post performance
+                        </td>
+                        <td>
+                            • Native app insights<br>
+                            • Instagram/TikTok notifications<br>
+                            • Meta Business Suite
+                        </td>
+                        <td>
+                            • Negative comments: Respond within 2 hours<br>
+                            • High-performing post: Boost with KES 500-1,000<br>
+                            • Low engagement: Adjust posting time
+                        </td>
+                        <td>5-10 minutes</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td><strong>WEEKLY</strong><br>(Tactical Report)</td>
+                        <td>
+                            • Follower growth by platform<br>
+                            • Top 5 performing posts<br>
+                            • Engagement rate trends<br>
+                            • Audience demographics shifts<br>
+                            • Website clicks / Link clicks<br>
+                            • Email open & click rates
+                        </td>
+                        <td>
+                            • Google Sheets dashboard<br>
+                            • Meta Business Suite<br>
+                            • TikTok Analytics<br>
+                            • Mailchimp reports
+                        </td>
+                        <td>
+                            • Follower growth &lt;50/week: Increase ad spend or content frequency<br>
+                            • Engagement &lt;4%: Test new content formats<br>
+                            • Email open &lt;20%: Revise subject lines
+                        </td>
+                        <td>30-45 minutes</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td><strong>MONTHLY</strong><br>(Strategic Review)</td>
+                        <td>
+                            • Total follower growth (all platforms)<br>
+                            • ROI per channel (spend vs followers)<br>
+                            • Content pillar performance<br>
+                            • Competitor benchmarking<br>
+                            • Budget utilization<br>
+                            • Event registration & attendance<br>
+                            • UGC quantity & quality
+                        </td>
+                        <td>
+                            • Custom Google Sheets dashboard<br>
+                            • All platform native analytics<br>
+                            • Manual competitor research<br>
+                            • Event registration data
+                        </td>
+                        <td>
+                            • Missing monthly target by 20%+: Major strategy pivot<br>
+                            • Platform ROI &lt;KES 30/follower: Pause or optimize<br>
+                            • Content pillar underperforming: Replace with new theme
+                        </td>
+                        <td>2-3 hours</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th colspan="6" style="background: #1b5e20; color: white; text-align: center;">SAMPLE WEEKLY DASHBOARD (Google Sheets Template)</th>
+                    </tr>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Week 1</th>
+                        <th>Week 2</th>
+                        <th>Week 3</th>
+                        <th>Week 4</th>
+                        <th>Trend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Total Followers</strong></td>
+                        <td>1,463</td>
+                        <td>1,550</td>
+                        <td>1,680</td>
+                        <td>1,850</td>
+                        <td style="color: green; font-weight: bold;">↑ 26.5%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instagram Engagement Rate</strong></td>
+                        <td>3.2%</td>
+                        <td>4.1%</td>
+                        <td>4.8%</td>
+                        <td>5.2%</td>
+                        <td style="color: green; font-weight: bold;">↑ 62.5%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TikTok Views</strong></td>
+                        <td>2,400</td>
+                        <td>8,500</td>
+                        <td>15,200</td>
+                        <td>22,800</td>
+                        <td style="color: green; font-weight: bold;">↑ 850%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email Subscribers</strong></td>
+                        <td>0</td>
+                        <td>15</td>
+                        <td>45</td>
+                        <td>85</td>
+                        <td style="color: green; font-weight: bold;">NEW</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Event Registrations</strong></td>
+                        <td>12</td>
+                        <td>28</td>
+                        <td>45</td>
+                        <td>62</td>
+                        <td style="color: green; font-weight: bold;">↑ 417%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ad Spend (KES)</strong></td>
+                        <td>0</td>
+                        <td>1,500</td>
+                        <td>2,000</td>
+                        <td>2,500</td>
+                        <td>6,000 total</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost Per Follower (KES)</strong></td>
+                        <td>0</td>
+                        <td>17.24</td>
+                        <td>15.38</td>
+                        <td>14.71</td>
+                        <td style="color: green; font-weight: bold;">↓ Improving</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 12: A/B TESTING ROADMAP -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🧪</span>
+                <span>12. A/B TESTING & OPTIMIZATION ROADMAP</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Test #</th>
+                        <th>Week</th>
+                        <th>Variable Tested</th>
+                        <th>Option A</th>
+                        <th>Option B</th>
+                        <th>Success Metric</th>
+                        <th>Sample Size</th>
+                        <th>Decision Criteria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Test 1</strong></td>
+                        <td>Week 3</td>
+                        <td><strong>CTA Copy</strong></td>
+                        <td>"Join us Saturday"</td>
+                        <td>"Register now for Saturday walk"</td>
+                        <td>Click-through rate to event page</td>
+                        <td>10 posts (5 each)</td>
+                        <td>Winner = +20% CTR or higher</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Test 2</strong></td>
+                        <td>Week 4</td>
+                        <td><strong>Content Format</strong></td>
+                        <td>Instagram Carousel (10 slides)</td>
+                        <td>Instagram Reel (30 seconds)</td>
+                        <td>Engagement rate (likes + comments + saves)</td>
+                        <td>6 posts (3 each, same topic)</td>
+                        <td>Winner = Highest total engagement</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Test 3</strong></td>
+                        <td>Week 5</td>
+                        <td><strong>Posting Time</strong></td>
+                        <td>7:00 AM (morning commute)</td>
+                        <td>6:00 PM (evening)</td>
+                        <td>Reach + engagement rate</td>
+                        <td>14 posts (7 each, same day of week)</td>
+                        <td>Winner = Best combined reach + ER</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Test 4</strong></td>
+                        <td>Week 6</td>
+                        <td><strong>Caption Length</strong></td>
+                        <td>Short (50-80 words)</td>
+                        <td>Long (120-150 words + story)</td>
+                        <td>Saves + shares (indicating value)</td>
+                        <td>8 posts (4 each)</td>
+                        <td>Winner = Highest save rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Test 5</strong></td>
+                        <td>Week 7</td>
+                        <td><strong>TikTok Hook</strong></td>
+                        <td>"POV: You discover..." (trending)</td>
+                        <td>"5 things about [trail]..." (listicle)</td>
+                        <td>Video completion rate + follows</td>
+                        <td>10 videos (5 each)</td>
+                        <td>Winner = Best completion rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Test 6</strong></td>
+                        <td>Week 8</td>
+                        <td><strong>Ad Creative</strong></td>
+                        <td>Group walking (social proof)</td>
+                        <td>Solo trail beauty (aspirational)</td>
+                        <td>Cost per follower from ads</td>
+                        <td>KES 2,000 budget (1K each)</td>
+                        <td>Winner = Lowest CAC</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Test 7</strong></td>
+                        <td>Week 9</td>
+                        <td><strong>Email Subject</strong></td>
+                        <td>"This weekend's trail + challenge 🥾"</td>
+                        <td>"[Name], your Saturday walk details inside"</td>
+                        <td>Email open rate</td>
+                        <td>Split 50/50 (min 100 subscribers)</td>
+                        <td>Winner = +15% open rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Test 8</strong></td>
+                        <td>Week 10</td>
+                        <td><strong>Hashtag Strategy</strong></td>
+                        <td>High-volume generic (#Fitness, #Kenya)</td>
+                        <td>Niche specific (#NairobiTrails, #WalkingCommunity)</td>
+                        <td>Reach from non-followers</td>
+                        <td>10 posts (5 each)</td>
+                        <td>Winner = Higher new follower %</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">⚡ TESTING BEST PRACTICES:</div>
+                Change ONE variable at a time. Run tests for minimum 1 week for statistical significance. Document all results in Google Sheets. Implement winning variations immediately. Re-test quarterly as algorithm changes.
+            </div>
+        </div>
+
+        <!-- SECTION 13: RISKS & MITIGATION -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">⚠️</span>
+                <span>13. RISK MANAGEMENT & MITIGATION STRATEGIES</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk Category</th>
+                        <th>Specific Risk</th>
+                        <th>Impact</th>
+                        <th>Probability</th>
+                        <th>Mitigation Strategy</th>
+                        <th>Contingency Plan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-red">
+                        <td rowspan="2"><strong>Content</strong></td>
+                        <td>Content fatigue / repetition</td>
+                        <td>High</td>
+                        <td>Medium</td>
+                        <td>
+                            • Rotate content pillars weekly<br>
+                            • Diversify formats (Reel/Carousel/Story)<br>
+                            • Monthly theme refresh<br>
+                            • Integrate UGC heavily
+                        </td>
+                        <td>Launch "Takeover Tuesdays" where members create content</td>
+                    </tr>
+                    <tr class="highlight-red">
+                        <td>Low-quality UGC submissions</td>
+                        <td>Low</td>
+                        <td>Medium</td>
+                        <td>
+                            • Provide content guidelines to members<br>
+                            • Offer basic phone photography tips<br>
+                            • Curate only best UGC
+                        </td>
+                        <td>Focus on professional content, use UGC sparingly</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td rowspan="2"><strong>Platform</strong></td>
+                        <td>Algorithm changes reduce reach</td>
+                        <td>High</td>
+                        <td>High</td>
+                        <td>
+                            • Multi-platform strategy (not reliant on 1)<br>
+                            • Build owned media (email list)<br>
+                            • Focus on engagement, not just reach<br>
+                            • Stay updated on platform changes
+                        </td>
+                        <td>Shift budget to best-performing platform, increase email marketing</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td>Platform outage or technical issues</td>
+                        <td>Low</td>
+                        <td>Low</td>
+                        <td>
+                            • Schedule content in advance<br>
+                            • Have backup platforms ready<br>
+                            • Maintain downloadable content library
+                        </td>
+                        <td>Use WhatsApp/Email for critical communications</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td rowspan="2"><strong>Budget</strong></td>
+                        <td>Ad costs higher than expected</td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>
+                            • Weekly budget tracking<br>
+                            • Pause underperforming campaigns quickly<br>
+                            • 10% contingency buffer<br>
+                            • Test small before scaling
+                        </td>
+                        <td>Go organic-only for 2-3 weeks, reallocate saved budget later</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td>Budget runs out before Week 12</td>
+                        <td>High</td>
+                        <td>Low</td>
+                        <td>
+                            • Strict weekly spend limits<br>
+                            • Approve all expenses &gt;KES 1,000<br>
+                            • Front-load essential expenses
+                        </td>
+                        <td>Strong organic strategy can carry last 2-3 weeks</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td rowspan="2"><strong>Growth</strong></td>
+                        <td>Follower growth slower than target</td>
+                        <td>Medium</td>
+                        <td>Medium</td>
+                        <td>
+                            • Weekly performance reviews<br>
+                            • Quick pivots to working strategies<br>
+                            • Increase content frequency<br>
+                            • Run micro-giveaways
+                        </td>
+                        <td>Revise targets downward, extend timeline, or add budget</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>Low engagement despite followers</td>
+                        <td>Medium</td>
+                        <td>Low</td>
+                        <td>
+                            • A/B test content formats<br>
+                            • Increase community interaction (replies, DMs)<br>
+                            • Host challenges/contests<br>
+                            • Survey audience for preferences
+                        </td>
+                        <td>Pause growth focus, optimize engagement for 2 weeks</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td rowspan="2"><strong>Execution</strong></td>
+                        <td>Content creator unavailable/sick</td>
+                        <td>High</td>
+                        <td>Low</td>
+                        <td>
+                            • Batch-create 2 weeks content in advance<br>
+                            • Train backup team member<br>
+                            • Maintain evergreen content library
+                        </td>
+                        <td>Use UGC, repost best past content, simplify posts temporarily</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td>Saturday walks cancelled (weather)</td>
+                        <td>Medium</td>
+                        <td>Medium (rainy season)</td>
+                        <td>
+                            • Have indoor venue backup (mall walking, gym)<br>
+                            • Weather contingency in event planning<br>
+                            • Reschedule to Sunday option
+                        </td>
+                        <td>Host virtual challenge, create "rainy day walking tips" content</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Competition</strong></td>
+                        <td>Competitor launches similar campaign</td>
+                        <td>Low</td>
+                        <td>Medium</td>
+                        <td>
+                            • Emphasize unique community aspects<br>
+                            • Build strong member loyalty early<br>
+                            • Focus on service quality, not just marketing
+                        </td>
+                        <td>Differentiate with exclusive perks, partnerships, unique trails</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partnerships</strong></td>
+                        <td>Influencers don't accept/deliver</td>
+                        <td>Low</td>
+                        <td>Medium</td>
+                        <td>
+                            • Have 10+ influencer backup list<br>
+                            • Clear contracts with deliverable timelines<br>
+                            • 50% payment on delivery model
+                        </td>
+                        <td>Reallocate influencer budget to ads, focus on organic growth</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 14: 12-WEEK TIMELINE -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📅</span>
+                <span>14. DETAILED 12-WEEK IMPLEMENTATION TIMELINE</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Weeks</th>
+                        <th>Key Activities</th>
+                        <th>Deliverables</th>
+                        <th>Budget Spend</th>
+                        <th>Milestone/Target</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-blue">
+                        <td><strong>PHASE 1:<br>Discovery & Setup</strong></td>
+                        <td>1-2</td>
+                        <td>
+                            • Strategy approval & kickoff meeting<br>
+                            • Set up all tool accounts<br>
+                            • Optimize existing profiles<br>
+                            • Create brand guidelines doc<br>
+                            • Design Canva templates (10 templates)<br>
+                            • Film & edit initial content bank (20 pieces)<br>
+                            • Outreach to 15 nano influencers<br>
+                            • Set up analytics tracking<br>
+                            • Launch TikTok account
+                        </td>
+                        <td>
+                            • 20-piece content library ready<br>
+                            • All platforms optimized<br>
+                            • 10 Canva templates<br>
+                            • Tools configured<br>
+                            • Influencer shortlist (5 confirmed)
+                        </td>
+                        <td>KES 4,000<br>(Tools setup)</td>
+                        <td>✅ Content bank ready<br>✅ 1,610 total followers<br>(+147 organic)</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td><strong>PHASE 2:<br>Launch</strong></td>
+                        <td>3-4</td>
+                        <td>
+                            • Campaign official launch<br>
+                            • Daily posting begins (all platforms)<br>
+                            • First Instagram ad campaign (KES 5K)<br>
+                            • First influencer posts (2 influencers)<br>
+                            • Launch email welcome series<br>
+                            • Host first Saturday "official" walk<br>
+                            • Launch 30-day step challenge<br>
+                            • Engage daily (comments/DMs 2hr response)
+                        </td>
+                        <td>
+                            • 40 posts published<br>
+                            • 2 influencer campaigns live<br>
+                            • Email automation active<br>
+                            • First challenge launched<br>
+                            • Event recap content
+                        </td>
+                        <td>KES 11,000<br>(Ads: 5K<br>Influencers: 6K)</td>
+                        <td>✅ 1,985 total followers<br>(+375 in 2 weeks)<br>✅ 4.1% avg engagement<br>✅ 60 event attendees</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td><strong>PHASE 3:<br>Scale</strong></td>
+                        <td>5-8</td>
+                        <td>
+                            • Analyze top performers, double down<br>
+                            • Scale ad spend (Instagram: +5K, TikTok: 6K)<br>
+                            • Third influencer activation<br>
+                            • A/B testing (4 tests)<br>
+                            • UGC campaign launch (#MyWalkingTribe)<br>
+                            • Monthly challenge refresh<br>
+                            • Partnership outreach (outdoor brands)<br>
+                            • Increase TikTok to 7x/week<br>
+                            • Launch YouTube Shorts consistently
+                        </td>
+                        <td>
+                            • 80 posts published<br>
+                            • 3rd influencer live<br>
+                            • 50+ UGC pieces collected<br>
+                            • A/B test results documented<br>
+                            • 1 brand partnership secured
+                        </td>
+                        <td>KES 24,000<br>(Ads: 21K<br>Influencer: 3K)</td>
+                        <td>✅ 2,910 total followers<br>(+925 in 4 weeks)<br>✅ 5.0% avg engagement<br>✅ 180 event attendees<br>✅ 1 viral TikTok (50K+ views)</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td><strong>PHASE 4:<br>Optimize & Sustain</strong></td>
+                        <td>9-12</td>
+                        <td>
+                            • Refine messaging based on data<br>
+                            • Final ad push (retargeting focus)<br>
+                            • Retention campaign (email/WhatsApp)<br>
+                            • Member spotlight series (10 features)<br>
+                            • End-of-campaign contest/giveaway<br>
+                            • Analyze full campaign ROI<br>
+                            • Plan Q1 2026 strategy<br>
+                            • Create sustainability plan (post-campaign)
+                        </td>
+                        <td>
+                            • Full campaign report<br>
+                            • 60 posts published<br>
+                            • All budget utilized<br>
+                            • Q1 2026 strategy doc<br>
+                            • Member testimonial videos (5)
+                        </td>
+                        <td>KES 11,000<br>(Ads: 8K<br>Contest: 2K<br>Misc: 1K)</td>
+                        <td>✅ 3,750 total followers<br>(+840 in 4 weeks)<br>✅ 5.2% avg engagement<br>✅ 200 email subscribers<br>✅ Sustainable post-campaign plan</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="4"><strong>TOTAL 12-WEEK CAMPAIGN</strong></td>
+                        <td><strong>KES 50,000</strong></td>
+                        <td><strong>3,750 followers (+156% growth)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 15: TEAM ROLES & RESPONSIBILITIES -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">👥</span>
+                <span>15. TEAM STRUCTURE & WEEKLY TIME ALLOCATION</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Responsibilities</th>
+                        <th>Key Tasks</th>
+                        <th>Weekly Hours</th>
+                        <th>Skills Required</th>
+                        <th>Can Be Combined?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-blue">
+                        <td><strong>Content Creator / Editor</strong></td>
+                        <td>
+                            • Film Saturday walks<br>
+                            • Edit videos & photos<br>
+                            • Create graphics in Canva<br>
+                            • Maintain content calendar<br>
+                            • Repurpose content across platforms
+                        </td>
+                        <td>
+                            • Monday: Review/edit weekend footage<br>
+                            • Tue-Wed: Create week's content<br>
+                            • Thursday: Batch schedule<br>
+                            • Friday: Next week planning<br>
+                            • Saturday: Event filming
+                        </td>
+                        <td>15-18 hours</td>
+                        <td>
+                            • Video editing (CapCut)<br>
+                            • Graphic design (Canva)<br>
+                            • Photography basics<br>
+                            • Storytelling
+                        </td>
+                        <td>✅ Can combine with Strategist role (20-25 hrs total)</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td><strong>Community Manager</strong></td>
+                        <td>
+                            • Respond to comments/DMs<br>
+                            • Monitor brand mentions<br>
+                            • Engage with audience daily<br>
+                            • Moderate WhatsApp groups<br>
+                            • Handle event registrations
+                        </td>
+                        <td>
+                            • Daily: Check all inboxes (2 hrs)<br>
+                            • Reply to comments within 2 hours<br>
+                            • Proactive engagement (like/comment on follower posts)<br>
+                            • Weekly: Update event lists<br>
+                            • Monthly: Member spotlight coordination
+                        </td>
+                        <td>10-12 hours</td>
+                        <td>
+                            • Customer service<br>
+                            • Fast typing/response<br>
+                            • Empathy & patience<br>
+                            • Crisis management
+                        </td>
+                        <td>✅ Can combine with any role (spread throughout day)</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td><strong>Paid Media Manager</strong></td>
+                        <td>
+                            • Set up ad campaigns<br>
+                            • Monitor ad performance<br>
+                            • Optimize budget allocation<br>
+                            • A/B test ad creatives<br>
+                            • Report on ROAS
+                        </td>
+                        <td>
+                            • Monday: Review weekend performance<br>
+                            • Tuesday: Launch new campaigns<br>
+                            • Wed-Fri: Daily optimization (30 min/day)<br>
+                            • Weekly: Budget reconciliation<br>
+                            • Monthly: ROI reporting
+                        </td>
+                        <td>6-8 hours</td>
+                        <td>
+                            • Meta Ads Manager<br>
+                            • TikTok Ads<br>
+                            • Analytics interpretation<br>
+                            • Budget management
+                        </td>
+                        <td>✅ Can combine with Strategist (especially if budget is tight)</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td><strong>Strategist / Digital Marketing Lead</strong></td>
+                        <td>
+                            • Overall strategy oversight<br>
+                            • Weekly/monthly reporting<br>
+                            • Influencer partnerships<br>
+                            • Brand partnerships<br>
+                            • Campaign pivots & optimization
+                        </td>
+                        <td>
+                            • Monday: Weekly planning meeting<br>
+                            • Wednesday: Mid-week check-in<br>
+                            • Friday: Weekly report & next week brief<br>
+                            • Ongoing: Strategic decisions<br>
+                            • Monthly: Deep dive analysis
+                        </td>
+                        <td>8-10 hours</td>
+                        <td>
+                            • Strategic thinking<br>
+                            • Data analysis<br>
+                            • Negotiation (partnerships)<br>
+                            • Reporting & presentations
+                        </td>
+                        <td>⚠️ Should oversee all, can do hands-on for small teams</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td colspan="3"><strong>TOTAL TEAM HOURS (if all separate)</strong></td>
+                        <td><strong>39-48 hrs/week</strong></td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td colspan="3"><strong>RECOMMENDED FOR KES 50K BUDGET: 1-2 Person Team</strong></td>
+                        <td><strong>25-30 hrs/week</strong></td>
+                        <td colspan="2"><strong>1 person = All roles combined | 2 people = Creator + Manager/Strategist</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">💡 HIRING RECOMMENDATION:</div>
+                For this budget, hire 1 versatile Digital Marketing Generalist who can handle content creation, community management, and basic paid ads. Alternatively, 2 part-time people: (1) Content Creator (18 hrs) + (2) Strategist/Manager (12 hrs). Total cost should fit within remaining budget after ad spend/tools.
+            </div>
+        </div>
+
+        <!-- SECTION 16: SUCCESS METRICS SUMMARY -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🎯</span>
+                <span>16. CAMPAIGN SUCCESS METRICS - FINAL TARGETS</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric Category</th>
+                        <th>Specific KPI</th>
+                        <th>Baseline (Week 0)</th>
+                        <th>Target (Week 12)</th>
+                        <th>Measurement Method</th>
+                        <th>Success Threshold</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-green">
+                        <td rowspan="7"><strong>GROWTH</strong></td>
+                        <td><strong>Total Followers (All Platforms)</strong></td>
+                        <td>1,463</td>
+                        <td>3,750</td>
+                        <td>Native platform analytics</td>
+                        <td>✅ Success: 3,400+ (90%)<br>⚠️ Partial: 3,000-3,399<br>❌ Miss: &lt;3,000</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>Instagram Followers</td>
+                        <td>1,443</td>
+                        <td>2,000</td>
+                        <td>Instagram Insights</td>
+                        <td>Success: 1,900+</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>TikTok Followers</td>
+                        <td>1</td>
+                        <td>500</td>
+                        <td>TikTok Analytics</td>
+                        <td>Success: 450+</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>YouTube Subscribers</td>
+                        <td>2</td>
+                        <td>300</td>
+                        <td>YouTube Studio</td>
+                        <td>Success: 250+</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>LinkedIn Followers</td>
+                        <td>14</td>
+                        <td>300</td>
+                        <td>LinkedIn Page Analytics</td>
+                        <td>Success: 250+</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>Facebook Followers</td>
+                        <td>3</td>
+                        <td>300</td>
+                        <td>Meta Business Suite</td>
+                        <td>Success: 250+</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>Email Subscribers</td>
+                        <td>0</td>
+                        <td>200</td>
+                        <td>Mailchimp Dashboard</td>
+                        <td>Success: 180+</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td rowspan="5"><strong>ENGAGEMENT</strong></td>
+                        <td><strong>Avg Engagement Rate (All Platforms)</strong></td>
+                        <td>2.1%</td>
+                        <td>5.0%</td>
+                        <td>Manual calculation: (Likes+Comments+Saves+Shares)/Followers</td>
+                        <td>✅ Success: 4.5%+<br>⚠️ Partial: 3.5-4.4%<br>❌ Miss: &lt;3.5%</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td>Instagram Engagement Rate</td>
+                        <td>~2.5%</td>
+                        <td>5.2%</td>
+                        <td>Instagram Insights</td>
+                        <td>Success: 4.8%+</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td>TikTok Average Views</td>
+                        <td>N/A</td>
+                        <td>3,000+ per video</td>
+                        <td>TikTok Analytics</td>
+                        <td>Success: 2,500+ avg</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td>Email Open Rate</td>
+                        <td>N/A</td>
+                        <td>28%+</td>
+                        <td>Mailchimp Reports</td>
+                        <td>Success: 25%+ (above industry avg 21%)</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td>Email Click-Through Rate</td>
+                        <td>N/A</td>
+                        <td>4.5%+</td>
+                        <td>Mailchimp Reports</td>
+                        <td>Success: 4%+ (above industry avg 2.3%)</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td rowspan="4"><strong>CONVERSION</strong></td>
+                        <td><strong>Event Registrations (Monthly)</strong></td>
+                        <td>~50</td>
+                        <td>200</td>
+                        <td>Event form submissions + Facebook Events</td>
+                        <td>✅ Success: 180+<br>⚠️ Partial: 150-179<br>❌ Miss: &lt;150</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td>Event Attendance Rate</td>
+                        <td>~60%</td>
+                        <td>70%</td>
+                        <td>Manual headcount / registrations</td>
+                        <td>Success: 65%+</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td>Website/Link Clicks</td>
+                        <td>Unknown</td>
+                        <td>1,500+</td>
+                        <td>Link tracking (bit.ly or native)</td>
+                        <td>Success: 1,200+</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td>UGC Posts Generated</td>
+                        <td>~15/month</td>
+                        <td>100/month</td>
+                        <td>Hashtag tracking (#WalkingTribe)</td>
+                        <td>Success: 80+ posts</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td rowspan="4"><strong>EFFICIENCY</strong></td>
+                        <td><strong>Cost Per Follower (Paid)</strong></td>
+                        <td>N/A</td>
+                        <td>KES 20-25</td>
+                        <td>Total ad spend / new followers from ads</td>
+                        <td>✅ Success: &lt;KES 25<br>⚠️ OK: KES 25-35<br>❌ High: &gt;KES 35</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td>Overall Cost Per Follower</td>
+                        <td>N/A</td>
+                        <td>KES 21.85</td>
+                        <td>Total budget / total new followers</td>
+                        <td>Success: &lt;KES 25</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td>Content Production Efficiency</td>
+                        <td>N/A</td>
+                        <td>50+ pieces/week</td>
+                        <td>Content calendar tracking</td>
+                        <td>Success: 40+ pieces/week from limited filming</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td>Time to Respond (DMs/Comments)</td>
+                        <td>Unknown</td>
+                        <td>&lt;2 hours</td>
+                        <td>Manual tracking</td>
+                        <td>Success: 90% within 2 hours during business hours</td>
+                    </tr>
+                    <tr class="highlight-red">
+                        <td rowspan="3"><strong>BRAND HEALTH</strong></td>
+                        <td><strong>Brand Sentiment</strong></td>
+                        <td>Neutral</td>
+                        <td>85%+ positive</td>
+                        <td>Manual comment/DM sentiment analysis</td>
+                        <td>Success: 80%+ positive comments</td>
+                    </tr>
+                    <tr class="highlight-red">
+                        <td>Member Retention Rate</td>
+                        <td>Unknown</td>
+                        <td>60%</td>
+                        <td>Repeat event attendees / total unique</td>
+                        <td>Success: 55%+ attend 2+ events</td>
+                    </tr>
+                    <tr class="highlight-red">
+                        <td>Referral Rate</td>
+                        <td>Unknown</td>
+                        <td>30%</td>
+                        <td>Survey: "How did you hear about us?"</td>
+                        <td>Success: 25%+ from word-of-mouth</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 17: NEXT STEPS & APPROVALS -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">✅</span>
+                <span>17. IMMEDIATE NEXT STEPS & APPROVAL CHECKLIST</span>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Action Item</th>
+                        <th>Owner</th>
+                        <th>Deadline</th>
+                        <th>Status</th>
+                        <th>Dependencies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-blue">
+                        <td rowspan="4"><strong>WEEK 0:<br>Approval</strong></td>
+                        <td>Review complete strategy document</td>
+                        <td>WALKINGTRIBE Leadership</td>
+                        <td>Day 2</td>
+                        <td>⏳ Pending</td>
+                        <td>None</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td>Approve budget (KES 50,000)</td>
+                        <td>WALKINGTRIBE Leadership</td>
+                        <td>Day 3</td>
+                        <td>⏳ Pending</td>
+                        <td>Strategy review complete</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td>Confirm team structure (1-2 people)</td>
+                        <td>WALKINGTRIBE Leadership</td>
+                        <td>Day 3</td>
+                        <td>⏳ Pending</td>
+                        <td>Budget approval</td>
+                    </tr>
+                    <tr class="highlight-blue">
+                        <td>Sign off on timeline & targets</td>
+                        <td>WALKINGTRIBE Leadership</td>
+                        <td>Day 5</td>
+                        <td>⏳ Pending</td>
+                        <td>All above approvals</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td rowspan="6"><strong>WEEK 1:<br>Setup</strong></td>
+                        <td>Purchase tools (Canva Pro, Google Workspace)</td>
+                        <td>Hired Strategist</td>
+                        <td>Day 2</td>
+                        <td>⏳ Pending</td>
+                        <td>Budget release</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>Optimize all social media bios & profiles</td>
+                        <td>Content Creator</td>
+                        <td>Day 3</td>
+                        <td>⏳ Pending</td>
+                        <td>Brand guidelines finalized</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>Create 10 Canva templates (Reels, carousels, stories)</td>
+                        <td>Content Creator</td>
+                        <td>Day 5</td>
+                        <td>⏳ Pending</td>
+                        <td>Canva Pro purchased</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>Set up Meta Business Suite & scheduling tools</td>
+                        <td>Strategist</td>
+                        <td>Day 4</td>
+                        <td>⏳ Pending</td>
+                        <td>Profile access granted</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>Launch TikTok account with 5 initial videos</td>
+                        <td>Content Creator</td>
+                        <td>Day 7</td>
+                        <td>⏳ Pending</td>
+                        <td>Existing footage available</td>
+                    </tr>
+                    <tr class="highlight-green">
+                        <td>Reach out to 15 nano influencers</td>
+                        <td>Strategist</td>
+                        <td>Day 7</td>
+                        <td>⏳ Pending</td>
+                        <td>Influencer list created</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td rowspan="5"><strong>WEEK 2:<br>Content Bank</strong></td>
+                        <td>Attend Saturday walk & film comprehensive footage</td>
+                        <td>Content Creator</td>
+                        <td>Day 13</td>
+                        <td>⏳ Pending</td>
+                        <td>Camera equipment ready</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td>Edit 20 pieces of content (2-week supply)</td>
+                        <td>Content Creator</td>
+                        <td>Day 10-14</td>
+                        <td>⏳ Pending</td>
+                        <td>Saturday footage</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td>Create detailed 4-week content calendar</td>
+                        <td>Strategist</td>
+                        <td>Day 12</td>
+                        <td>⏳ Pending</td>
+                        <td>Content pillars defined</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td>Set up email welcome automation (3 emails)</td>
+                        <td>Strategist</td>
+                        <td>Day 14</td>
+                        <td>⏳ Pending</td>
+                        <td>Mailchimp setup</td>
+                    </tr>
+                    <tr class="highlight-amber">
+                        <td>Confirm first 2 influencer partnerships</td>
+                        <td>Strategist</td>
+                        <td>Day 14</td>
+                        <td>⏳ Pending</td>
+                        <td>Influencer responses</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td rowspan="4"><strong>WEEK 3:<br>Launch</strong></td>
+                        <td>Official campaign launch announcement</td>
+                        <td>All team</td>
+                        <td>Day 15</td>
+                        <td>⏳ Pending</td>
+                        <td>All setup complete</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td>Launch first Instagram ad campaign (KES 5,000)</td>
+                        <td>Paid Media Manager</td>
+                        <td>Day 16</td>
+                        <td>⏳ Pending</td>
+                        <td>Ad creatives ready, budget released</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td>First influencer posts go live</td>
+                        <td>Influencers + Strategist</td>
+                        <td>Day 18-21</td>
+                        <td>⏳ Pending</td>
+                        <td>Influencer briefing complete</td>
+                    </tr>
+                    <tr class="highlight-purple">
+                        <td>Launch 30-day step challenge</td>
+                        <td>Community Manager</td>
+                        <td>Day 17</td>
+                        <td>⏳ Pending</td>
+                        <td>Challenge mechanics defined</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notes">
+                <div class="notes-title">🚨 CRITICAL PATH ITEMS:</div>
+                <strong>Must complete by Day 7:</strong> Tool setup, profile optimization, initial content bank (15 pieces minimum), TikTok launch.<br>
+                <strong>Must complete by Day 14:</strong> Full 20-piece content library, 4-week calendar, influencer confirmations, email automation live.<br>
+                <strong>Week 3 launch is contingent on:</strong> All Week 1-2 deliverables complete, budget released, team trained and ready.
+            </div>
+        </div>
+
+        <!-- SECTION 18: CONTACT & SUBMISSION -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📧</span>
+                <span>18. SUBMISSION & CONTACT INFORMATION</span>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%); color: white; padding: 30px; border-radius: 12px; text-align: center;">
+                <h2 style="font-size: 28px; margin-bottom: 15px;">Ready to Grow WALKINGTRIBE? 🥾</h2>
+                <p style="font-size: 18px; margin-bottom: 20px;">Let's get 3,750+ Nairobians walking together in 12 weeks!</p>
+                
+                <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <p style="font-size: 16px; margin-bottom: 10px;"><strong>Submission Email:</strong></p>
+                    <p style="font-size: 24px; font-weight: bold;">hey@walkingtribe.ke</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; margin-top: 20px;">
+                    <p style="font-size: 14px; margin-bottom: 10px;"><strong>Required Deliverables:</strong></p>
+                    <p style="font-size: 16px;">1. This Spreadsheet as PDF (comprehensive strategy)<br>
+                    2. Executive Summary (1 page, high-level overview)<br>
+                    3. Clearly labeled file names<br>
+                    4. Submitted within 72 hours of receiving brief</p>
+                </div>
+            </div>
+
+            <table style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th colspan="2" style="background: #1b5e20; color: white; text-align: center;">STRATEGY PREPARED BY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Prepared By:</strong></td>
+                        <td>Elizabeth Wairimu</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Role:</strong></td>
+                        <td>Digital Marketing Strategist (Intern Applicant)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date Prepared:</strong></td>
+                        <td>November 2025</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Strategy Type:</strong></td>
+                        <td>12-Week Growth Campaign | Budget: KES 50,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Key Differentiator:</strong></td>
+                        <td>Hyper-realistic targets based on actual current metrics, not fantasy numbers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contact for Questions:</strong></td>
+                        <td>hey@walkingtribe.ke</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="margin-top: 40px; padding: 30px; background: #f5f5f5; border-radius: 8px; text-align: center;">
+            <p style="font-size: 18px; font-weight: bold; color: #1b5e20; margin-bottom: 15px;">
+                "Every great journey begins with a single step. Let's take 3,750 steps together." 🌿
+            </p>
+            <p style="font-size: 14px; color: #666; margin-bottom: 10px;">
+                This strategy is built on realistic assumptions, industry benchmarks, and achievable targets.<br>
+                All projections are conservative and account for execution challenges in a resource-constrained environment.
+            </p>
+            <p style="font-size: 12px; color: #999; margin-top: 15px;">
+                WALKINGTRIBE | Baraza Media Lab | 2nd Floor, Block B | Keystone Park | 95 Riverside Drive, Nairobi<br>
+                www.walkingtribe.ke | Instagram: @walking_tribe | TikTok: @walkingtribe
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // Add print functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('WALKINGTRIBE Digital Marketing Strategy loaded successfully');
+            
+            // Optional: Add click tracking for sections
+            const sections = document.querySelectorAll('.section-title');
+            sections.forEach(section => {
+                section.style.cursor = 'pointer';
+                section.addEventListener('click', function() {
+                    const sectionContent = this.nextElementSibling;
+                    if (sectionContent) {
+                        sectionContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
